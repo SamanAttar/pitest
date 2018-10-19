@@ -55,6 +55,8 @@ import org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveIncreme
 import org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator;
 import org.pitest.mutationtest.engine.gregor.mutators.experimental.SwitchMutator;
 
+import org.pitest.mutationtest.engine.gregor.mutators.RorMutator;
+
 public final class Mutator {
 
   private static final Map<String, Iterable<MethodMutatorFactory>> MUTATORS = new LinkedHashMap<>();
@@ -81,6 +83,10 @@ public final class Mutator {
     /**
      * Default mutator that mutates binary arithmetic operations.
      */
+    //Saman conects math mutator file to path
+    //adding the import so we can call this math_mutator
+      //this is the enum
+      //the string is used in the pom file
     add("MATH", MathMutator.MATH_MUTATOR);
 
     /**
@@ -124,6 +130,11 @@ public final class Mutator {
      * Optional mutator that replaces constructor calls with null values.
      */
     add("CONSTRUCTOR_CALLS", ConstructorCallMutator.CONSTRUCTOR_CALL_MUTATOR);
+
+
+    // ROR_MUTATOR
+    add("ROR_MUTATOR", RorMutator.ROR_MUTATOR);
+
 
     /**
      * Removes conditional statements so that guarded statements always execute
@@ -209,10 +220,13 @@ public final class Mutator {
   public static Collection<MethodMutatorFactory> defaults() {
     return group(InvertNegsMutator.INVERT_NEGS_MUTATOR,
         ReturnValsMutator.RETURN_VALS_MUTATOR, MathMutator.MATH_MUTATOR,
+        ReturnValsMutator.RETURN_VALS_MUTATOR, RorMutator.ROR_MUTATOR,
         VoidMethodCallMutator.VOID_METHOD_CALL_MUTATOR,
         NegateConditionalsMutator.NEGATE_CONDITIONALS_MUTATOR,
         ConditionalsBoundaryMutator.CONDITIONALS_BOUNDARY_MUTATOR,
+            RorMutator.ROR_MUTATOR,
         IncrementsMutator.INCREMENTS_MUTATOR);
+
   }
 
   /**
@@ -221,6 +235,7 @@ public final class Mutator {
   public static Collection<MethodMutatorFactory> newDefaults() {
     return combine(group(InvertNegsMutator.INVERT_NEGS_MUTATOR,
         MathMutator.MATH_MUTATOR,
+        RorMutator.ROR_MUTATOR,
         VoidMethodCallMutator.VOID_METHOD_CALL_MUTATOR,
         NegateConditionalsMutator.NEGATE_CONDITIONALS_MUTATOR,
         ConditionalsBoundaryMutator.CONDITIONALS_BOUNDARY_MUTATOR,

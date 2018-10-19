@@ -136,8 +136,8 @@ public final class Mutator {
 
     // ROR_MUTATOR
     add("ROR_MUTATOR", RorMutator.ROR_MUTATOR);
-    add("ROR_MUTATOR", RorMutator2.ROR_MUTATOR);
-    add("ROR_MUTATOR", RorMutator3.ROR_MUTATOR);
+    add("ROR_MUTATOR2", RorMutator2.ROR_MUTATOR2);
+    add("ROR_MUTATOR3", RorMutator3.ROR_MUTATOR3);
 
     /**
      * Removes conditional statements so that guarded statements always execute
@@ -227,8 +227,8 @@ public final class Mutator {
         NegateConditionalsMutator.NEGATE_CONDITIONALS_MUTATOR,
         ConditionalsBoundaryMutator.CONDITIONALS_BOUNDARY_MUTATOR,
             RorMutator.ROR_MUTATOR,
-            RorMutator2.ROR_MUTATOR,
-            RorMutator3.ROR_MUTATOR,
+            RorMutator2.ROR_MUTATOR2,
+            RorMutator3.ROR_MUTATOR3,
         IncrementsMutator.INCREMENTS_MUTATOR);
 
   }
@@ -244,8 +244,8 @@ public final class Mutator {
         ConditionalsBoundaryMutator.CONDITIONALS_BOUNDARY_MUTATOR,
         IncrementsMutator.INCREMENTS_MUTATOR,
             RorMutator.ROR_MUTATOR,
-            RorMutator2.ROR_MUTATOR,
-            RorMutator3.ROR_MUTATOR),
+            RorMutator2.ROR_MUTATOR2,
+            RorMutator3.ROR_MUTATOR3),
             betterReturns());
   }
 

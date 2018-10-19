@@ -15,7 +15,7 @@ import org.pitest.mutationtest.engine.gregor.MutationContext;
 //so basically, this is what is being called in the config
 public enum RorMutator3 implements MethodMutatorFactory {
 
-    ROR_MUTATOR;
+    ROR_MUTATOR3;
 
     @Override
     public MethodVisitor create(final MutationContext context,
@@ -43,30 +43,25 @@ class RorMutatorVisitor3 extends AbstractJumpMutator {
     }
 
     private static final Map<Integer, Substitution> MUTATIONS = new HashMap<>();
+    static final String MESSAGE = "ROR Mutation 3.";
 
     static {
 
-        String MESSAGE = "ROR Mutation 3, Replace \"if value == 0\" with \"if value > 0\"";
         // Replace "if value == 0" with "if value > 0"
         MUTATIONS.put(Opcodes.IFEQ, new Substitution(Opcodes.IFGT, MESSAGE));
 
-        MESSAGE = "ROR Mutation 3, Replace \"if value != 0\" with \"if value > 0\"";
         // Replace "if value != 0" with "if value > 0"
         MUTATIONS.put(Opcodes.IFNE, new Substitution(Opcodes.IFGT, MESSAGE));
 
-        MESSAGE = "ROR Mutation 3, Replace \"if value < 0\" with \"if value > 0\"";
         // Replace "if value < 0" with "if value > 0"
         MUTATIONS.put(Opcodes.IFNE, new Substitution(Opcodes.IFGT, MESSAGE));
 
-        MESSAGE = "ROR Mutation 3, Replace \"if value > 0\" with \"if value < 0\"";
         // Replace "if value > 0" with "if value < 0"
         MUTATIONS.put(Opcodes.IFGT, new Substitution(Opcodes.IFNE, MESSAGE));
 
-        MESSAGE = "ROR Mutation 3, Replace \"if value >= 0\" with \"if value > 0\"";
         // Replace "if value >= 0" with "if value > 0"
         MUTATIONS.put(Opcodes.IFGE, new Substitution(Opcodes.IFGT, MESSAGE));
 
-        MESSAGE = "ROR Mutation 3, Replace \"if value <= 0\" with \"if value > 0\"";
         // Replace "if value <= 0" with "if value > 0"
         MUTATIONS.put(Opcodes.IFLE, new Substitution(Opcodes.IFGT, MESSAGE));
     }

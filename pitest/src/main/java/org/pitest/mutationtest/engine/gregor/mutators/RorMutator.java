@@ -43,30 +43,25 @@ class RorMutatorVisitor extends AbstractJumpMutator {
     }
 
     private static final Map<Integer, Substitution> MUTATIONS = new HashMap<>();
+    static final String MESSAGE = "ROR Mutation 1.";
 
     static {
 
-        String MESSAGE = "ROR Mutation 1, Replace \"if value == 0\" with \"if value != 0\"";
         // Replace "if value == 0" with "if value != 0"
         MUTATIONS.put(Opcodes.IFEQ, new Substitution(Opcodes.IFNE, MESSAGE));
 
-        MESSAGE = "ROR Mutation 1, Replace \"if value != 0\" with \"if value == 0\"";
         // Replace "if value != 0" with "if value == 0"
         MUTATIONS.put(Opcodes.IFNE, new Substitution(Opcodes.IFEQ, MESSAGE));
 
-        MESSAGE =  "ROR Mutation 1, Replace \"if value < 0\" with \"if value == 0\"";
         // Replace "if value < 0" with "if value == 0"
         MUTATIONS.put(Opcodes.IFNE, new Substitution(Opcodes.IFEQ, MESSAGE));
 
-        MESSAGE = "ROR Mutation 1, Replace \"if value > 0\" with \"if value == 0\"";
         // Replace "if value > 0" with "if value == 0"
         MUTATIONS.put(Opcodes.IFGT, new Substitution(Opcodes.IFEQ, MESSAGE));
 
-        MESSAGE = "ROR Mutation 1, Replace \"if value >= 0\" with \"if value == 0\"";
         // Replace "if value >= 0" with "if value == 0"
         MUTATIONS.put(Opcodes.IFGE, new Substitution(Opcodes.IFEQ, MESSAGE));
 
-        MESSAGE = "ROR Mutation 1, Replace \"if value <= 0\" with \"if value == 0\"";
         // Replace "if value <= 0" with "if value == 0"
         MUTATIONS.put(Opcodes.IFLE, new Substitution(Opcodes.IFEQ, MESSAGE));
     }

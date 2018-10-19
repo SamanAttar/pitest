@@ -45,30 +45,31 @@ class RorMutatorVisitor2 extends AbstractJumpMutator {
     private static final Map<Integer, Substitution> MUTATIONS = new HashMap<>();
 
     static {
+        
+        String MESSAGE = "ROR Mutator 2,  Replace \"if value == 0\" with \"if value < 0\"";
+        // Replace "if value == 0" with "if value < 0"
+        MUTATIONS.put(Opcodes.IFEQ, new Substitution(Opcodes.IFLT, MESSAGE));
 
-        String MESSAGE = "ROR Mutation 1, Replace \"if value == 0\" with \"if value != 0\"";
-        // Replace "if value == 0" with "if value != 0"
-        MUTATIONS.put(Opcodes.IFEQ, new Substitution(Opcodes.IFNE, MESSAGE));
 
-        MESSAGE = "ROR Mutation 1, Replace \"if value != 0\" with \"if value == 0\"";
-        // Replace "if value != 0" with "if value == 0"
-        MUTATIONS.put(Opcodes.IFNE, new Substitution(Opcodes.IFEQ, MESSAGE));
+        MESSAGE = "ROR Mutator 2, Replace \"if value != 0\" with \"if value < 0\"";
+        // Replace "if value != 0" with "if value < 0"
+        MUTATIONS.put(Opcodes.IFNE, new Substitution(Opcodes.IFLT, MESSAGE));
 
-        MESSAGE =  "ROR Mutation 1, Replace \"if value < 0\" with \"if value == 0\"";
-        // Replace "if value < 0" with "if value == 0"
-        MUTATIONS.put(Opcodes.IFNE, new Substitution(Opcodes.IFEQ, MESSAGE));
+        MESSAGE = "ROR Mutator 2, Replace \"if value < 0\" with \"if value != 0\"";
+        // Replace "if value < 0" with "if value != 0"
+        MUTATIONS.put(Opcodes.IFNE, new Substitution(Opcodes.IFNE, MESSAGE));
 
-        MESSAGE = "ROR Mutation 1, Replace \"if value > 0\" with \"if value == 0\"";
-        // Replace "if value > 0" with "if value == 0"
-        MUTATIONS.put(Opcodes.IFGT, new Substitution(Opcodes.IFEQ, MESSAGE));
+        MESSAGE = "ROR Mutator 2, \"if value > 0\" with \"if value != 0\"";
+        // Replace "if value > 0" with "if value != 0"
+        MUTATIONS.put(Opcodes.IFGT, new Substitution(Opcodes.IFNE, MESSAGE));
 
-        MESSAGE = "ROR Mutation 1, Replace \"if value >= 0\" with \"if value == 0\"";
-        // Replace "if value >= 0" with "if value == 0"
-        MUTATIONS.put(Opcodes.IFGE, new Substitution(Opcodes.IFEQ, MESSAGE));
+        MESSAGE = "ROR Mutator 2, Replace \"if value >= 0\" with \"if value != 0\"";
+        // Replace "if value >= 0" with "if value != 0"
+        MUTATIONS.put(Opcodes.IFGE, new Substitution(Opcodes.IFNE, MESSAGE));
 
-        MESSAGE = "ROR Mutation 1, Replace \"if value <= 0\" with \"if value == 0\"";
-        // Replace "if value <= 0" with "if value == 0"
-        MUTATIONS.put(Opcodes.IFLE, new Substitution(Opcodes.IFEQ, MESSAGE));
+        MESSAGE = "ROR Mutator 2, Replace \"if value <= 0\" with \"if value != 0\"";
+        // Replace "if value <= 0" with "if value != 0"
+        MUTATIONS.put(Opcodes.IFLE, new Substitution(Opcodes.IFNE, MESSAGE));
     }
 
     @Override

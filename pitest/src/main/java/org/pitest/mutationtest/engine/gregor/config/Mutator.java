@@ -59,6 +59,7 @@ import org.pitest.mutationtest.engine.gregor.mutators.RorMutator;
 import org.pitest.mutationtest.engine.gregor.mutators.RorMutator2;
 import org.pitest.mutationtest.engine.gregor.mutators.RorMutator3;
 import org.pitest.mutationtest.engine.gregor.mutators.RorMutator4;
+import org.pitest.mutationtest.engine.gregor.mutators.RorMutator5;
 
 public final class Mutator {
 
@@ -140,6 +141,7 @@ public final class Mutator {
     add("ROR_MUTATOR2", RorMutator2.ROR_MUTATOR2);
     add("ROR_MUTATOR3", RorMutator3.ROR_MUTATOR3);
     add("ROR_MUTATOR4", RorMutator4.ROR_MUTATOR4);
+    add("ROR_MUTATOR5", RorMutator5.ROR_MUTATOR5);
 
     /**
      * Removes conditional statements so that guarded statements always execute
@@ -232,6 +234,7 @@ public final class Mutator {
             RorMutator2.ROR_MUTATOR2,
             RorMutator3.ROR_MUTATOR3,
             RorMutator4.ROR_MUTATOR4,
+            RorMutator5.ROR_MUTATOR5,
         IncrementsMutator.INCREMENTS_MUTATOR);
 
   }
@@ -249,7 +252,8 @@ public final class Mutator {
             RorMutator.ROR_MUTATOR,
             RorMutator2.ROR_MUTATOR2,
             RorMutator3.ROR_MUTATOR3,
-            RorMutator4.ROR_MUTATOR4),
+            RorMutator4.ROR_MUTATOR4,
+            RorMutator5.ROR_MUTATOR5),
             betterReturns());
   }
 

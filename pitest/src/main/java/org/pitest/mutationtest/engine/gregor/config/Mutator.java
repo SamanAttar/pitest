@@ -135,7 +135,6 @@ public final class Mutator {
     // ROR_MUTATOR
     add("ROR_MUTATOR", RorMutator.ROR_MUTATOR);
 
-
     /**
      * Removes conditional statements so that guarded statements always execute
      * The EQUAL version ignores LT,LE,GT,GE, which is the default behaviour,
@@ -220,7 +219,6 @@ public final class Mutator {
   public static Collection<MethodMutatorFactory> defaults() {
     return group(InvertNegsMutator.INVERT_NEGS_MUTATOR,
         ReturnValsMutator.RETURN_VALS_MUTATOR, MathMutator.MATH_MUTATOR,
-        ReturnValsMutator.RETURN_VALS_MUTATOR, RorMutator.ROR_MUTATOR,
         VoidMethodCallMutator.VOID_METHOD_CALL_MUTATOR,
         NegateConditionalsMutator.NEGATE_CONDITIONALS_MUTATOR,
         ConditionalsBoundaryMutator.CONDITIONALS_BOUNDARY_MUTATOR,
@@ -235,11 +233,12 @@ public final class Mutator {
   public static Collection<MethodMutatorFactory> newDefaults() {
     return combine(group(InvertNegsMutator.INVERT_NEGS_MUTATOR,
         MathMutator.MATH_MUTATOR,
-        RorMutator.ROR_MUTATOR,
         VoidMethodCallMutator.VOID_METHOD_CALL_MUTATOR,
         NegateConditionalsMutator.NEGATE_CONDITIONALS_MUTATOR,
         ConditionalsBoundaryMutator.CONDITIONALS_BOUNDARY_MUTATOR,
-        IncrementsMutator.INCREMENTS_MUTATOR), betterReturns());
+        IncrementsMutator.INCREMENTS_MUTATOR,
+            RorMutator.ROR_MUTATOR),
+            betterReturns());
   }
 
 

@@ -1,0 +1,43 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.mycompany.app</groupId>
+  <artifactId>my-app</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>my-app</name>
+  <url>http://maven.apache.org</url>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.6</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+
+  <build>
+    <plugins>
+        <plugin>
+            <groupId>org.pitest</groupId>
+            <artifactId>pitest-maven</artifactId>
+            <version>1.4.4-SNAPSHOT</version>
+              <configuration>
+                <mutators>
+                    <mutator>CONSTRUCTOR_CALLS</mutator>
+                    <mutator>NON_VOID_METHOD_CALLS</mutator>
+                    <mutator>ROR_MUTATOR</mutator>
+                    <mutator>ROR_MUTATOR2</mutator>
+                    <mutator>ROR_MUTATOR3</mutator>
+                    <mutator>ROR_MUTATOR4</mutator>
+                    <mutator>ROR_MUTATOR5</mutator>
+                  <!--  DO something like this: <mutator>AOR_Calls</mutator> -->
+                </mutators>
+              </configuration>
+
+        </plugin>
+    </plugins>
+  </build>
+
+</project>

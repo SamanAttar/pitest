@@ -13,14 +13,14 @@ import org.pitest.mutationtest.engine.gregor.MutationContext;
 
 //Saman - fancy way of saying - we are going to call a specific instance of this math mutator
 //so basically, this is what is being called in the config
-public enum RorMutator implements MethodMutatorFactory {
+public enum RorMutator2 implements MethodMutatorFactory {
 
     ROR_MUTATOR;
 
     @Override
     public MethodVisitor create(final MutationContext context,
                                 final MethodInfo methodInfo, final MethodVisitor methodVisitor) {
-        return new RorMutatorVisitor(this, context, methodVisitor);
+        return new RorMutatorVisitor2(this, context, methodVisitor);
     }
 
     @Override
@@ -34,9 +34,9 @@ public enum RorMutator implements MethodMutatorFactory {
     }
 }
 
-class RorMutatorVisitor extends AbstractJumpMutator {
+class RorMutatorVisitor2 extends AbstractJumpMutator {
 
-    RorMutatorVisitor(final MethodMutatorFactory factory,
+    RorMutatorVisitor2(final MethodMutatorFactory factory,
                       final MutationContext context,
                       final MethodVisitor writer) {
         super(factory, context, writer);
